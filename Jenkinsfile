@@ -10,7 +10,7 @@ pipeline {
                 sh 'cd backend'
                 sh 'docker build -t mellow03/backend:latest .'
                 withCredentials([string(credentialsId: 'dhpswid', variable: 'dhpsw')]) {
-                    sh 'docker login -u mellow03 -p $dhpsw'  // Cambiado a $dhpsw
+                    sh 'docker login -u mellow03 -p $dhpsw'
                 }
                 sh 'docker push mellow03/backend:latest'
             }
