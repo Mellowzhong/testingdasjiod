@@ -7,7 +7,7 @@ pipeline {
         stage('Build backend') {
             steps {
                 checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/Mellowzhong/testingdasjiod']])
-                sh 'cd backend'
+                sh 'cd Backend'
                 sh 'docker build -t mellow03/backend:latest .'
                 withCredentials([string(credentialsId: 'dhpswid', variable: 'dhpsw')]) {
                     sh 'docker login -u mellow03 -p $dhpsw'
