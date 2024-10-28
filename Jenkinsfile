@@ -11,6 +11,7 @@ pipeline {
                 withCredentials([string(credentialsId: 'dhpswid', variable: 'dhpsw')]) {
                     sh 'docker login -u mellow03 -p $dhpsw'
                 }
+                sh 'docker login'
                 sh 'docker push mellow03/backend:latest'
             }
         }
